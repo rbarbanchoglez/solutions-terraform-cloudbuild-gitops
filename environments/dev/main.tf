@@ -21,6 +21,22 @@ provider "google" {
   project = "${var.project}"
 }
 
+module "gcs_buckets" {
+  source  = "terraform-google-modules/cloud-storage/google"
+  version = "~> 2.2"
+  project_id  = "${var.project}"
+  names = ["first", "second"]
+  prefix = "${var.project}"
+  #set_admin_roles = true
+  #admins = ["group:foo-admins@example.com"]
+  #versioning = {
+  #  first = true
+  #}
+  #bucket_admins = {
+  #  second = "user:spam@example.com,eggs@example.com"
+  #}
+}
+
 #module "vpc" {
 #  source  = "../../modules/vpc"
 #  project = "${var.project}"
