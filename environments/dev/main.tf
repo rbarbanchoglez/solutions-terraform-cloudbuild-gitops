@@ -22,6 +22,7 @@ provider "google" {
   project = "${var.project}"
 }
 
+
 module "gcs_buckets" {
   source  = "terraform-google-modules/cloud-storage/google"
   version = "~> 2.2"
